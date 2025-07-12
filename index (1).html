@@ -162,6 +162,47 @@
             animation: fadeInUp 1s ease-out 0.8s both;
         }
 
+        .motto {
+            font-size: 1.1rem;
+            font-style: italic;
+            margin-top: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 1s both;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            border-top: 1px solid rgba(255,255,255,0.3);
+            padding-top: 1rem;
+        }
+
+        /* New Business Model Box */
+        .business-model-box {
+            background: rgba(255, 255, 255, 0.15);
+            border: 2px solid #ffd700;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-top: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            color: white;
+            animation: fadeInUp 1s ease-out 1.2s both;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .business-model-box h3 {
+            font-size: 1.5rem;
+            color: #ffd700;
+            margin-bottom: 1rem;
+        }
+
+        .business-model-box p {
+            font-size: 1rem;
+            line-height: 1.5;
+            opacity: 0.9;
+        }
+
         /* Features Section */
         .features {
             padding: 5rem 2rem;
@@ -390,6 +431,21 @@
                 font-size: 1.2rem;
             }
 
+            .motto {
+                font-size: 1rem;
+            }
+
+            .business-model-box {
+                margin-top: 2rem;
+                padding: 1rem;
+            }
+            .business-model-box h3 {
+                font-size: 1.2rem;
+            }
+            .business-model-box p {
+                font-size: 0.9rem;
+            }
+
             .features-grid {
                 grid-template-columns: 1fr;
                 gap: 2rem;
@@ -397,6 +453,12 @@
 
             .process-steps {
                 grid-template-columns: 1fr;
+            }
+            
+            /* Responsive adjustments for referral grid */
+            .referral-content {
+                grid-template-columns: 1fr; /* Stack cards vertically on small screens */
+                gap: 2rem;
             }
         }
 
@@ -449,9 +511,12 @@
 
         .referral-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            /* Modifica qui per 2 colonne */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
             gap: 2.5rem;
             margin-bottom: 4rem;
+            justify-content: center; /* Centra le card nel contenitore */
+            align-items: start;
         }
 
         .referral-card {
@@ -461,6 +526,7 @@
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
             text-align: center;
+            color: white;
             transition: all 0.3s ease;
             animation: fadeInUp 1s ease-out;
         }
@@ -742,11 +808,6 @@
         }
 
         @media (max-width: 768px) {
-            .referral-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
             .referral-process {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
@@ -772,6 +833,7 @@
             transform: translateX(-50%);
             animation: float 2s ease-in-out infinite;
             z-index: 2;
+            display: none;
         }
 
         .scroll-arrow {
@@ -782,7 +844,6 @@
     </style>
 </head>
 <body>
-    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
             <div class="logo-section">
@@ -800,6 +861,15 @@
             
             <h1 class="main-title">Tu Futuro Profesional en Italia</h1>
             <p class="subtitle">Conectamos talento sudamericano con oportunidades laborales en Italia</p>
+            <p class="motto">
+                Para el trabajador, el proceso será gratuito con Tyche porque migrar ya cuesta el corazón.
+                ¡Contra la trata de trabajadores, revertimos el concepto de migración!
+            </p>
+
+            <div class="business-model-box">
+                <h3>Un Nuevo Modelo de Negocio para Nuevos Mercados</h3>
+                <p>Nuestra visión es trascender las barreras tradicionales, creando un puente seguro y ético para la migración laboral. Este enfoque no solo beneficia a los trabajadores, sino que también abre vastas oportunidades en mercados emergentes y optimiza la oferta de talento global.</p>
+            </div>
         </div>
         
         <div class="scroll-indicator">
@@ -807,7 +877,6 @@
         </div>
     </section>
 
-    <!-- Features Section -->
     <section class="features">
         <div class="container">
             <h2 class="cta-title" style="text-align: center; color: white;">¿Por Qué Elegir Italia?</h2>
@@ -824,8 +893,8 @@
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🎓</div>
-                    <h3 class="feature-title">Formación Integral</h3>
-                    <p class="feature-description">Cursos de italiano, capacitación laboral y orientación para tu integración exitosa</p>
+                    <h3 class="feature-title">Formación Integral GRATUITA</h3>
+                    <p class="feature-description">Curso de italiano de 80 horas completamente gratuito, capacitación laboral y orientación para tu integración exitosa</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🤝</div>
@@ -846,7 +915,6 @@
         </div>
     </section>
 
-    <!-- Process Section -->
     <section class="process">
         <div class="container">
             <h2 class="process-title">¿Cómo Funciona?</h2>
@@ -858,81 +926,85 @@
                 </div>
                 <div class="step">
                     <div class="step-number">2</div>
-                    <h3 class="step-title">Evaluación</h3>
-                    <p class="step-description">Nuestro equipo evaluará tu perfil y te contactará para una entrevista</p>
+                    <h3 class="step-title">Evaluación y Curso Gratuito</h3>
+                    <p class="step-description">Nuestro equipo evaluará tu perfil y iniciarás el curso de italiano GRATUITO de 80 horas</p>
                 </div>
                 <div class="step">
                     <div class="step-number">3</div>
-                    <h3 class="step-title">Preparación</h3>
-                    <p class="step-description">Inicio del curso de italiano y orientación sobre la cultura y trabajo en Italia</p>
+                    <h3 class="step-title">Entrevistas y Contrato</h3>
+                    <p class="step-description">Durante el curso, comenzarás entrevistas online. Si eres seleccionado, firmarás tu contrato de trabajo</p>
                 </div>
                 <div class="step">
                     <div class="step-number">4</div>
-                    <h3 class="step-title">Viaje</h3>
-                    <p class="step-description">Te ayudamos con todos los trámites para tu viaje y llegada a Italia</p>
+                    <h3 class="step-title">Viaje y Permiso de Residencia</h3>
+                    <p class="step-description">Con tu contrato en mano, te ayudamos a gestionar tu permiso de trabajo y residencia en la embajada para tu viaje a Italia</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Referral Section -->
     <section class="referral">
         <div class="container">
-            <h2 class="referral-title">¡Gana Dinero Recomendando!</h2>
-            <p class="referral-subtitle">¿Conoces a alguien que quiera trabajar en Italia? ¡Ayúdale y gana €10 por cada persona que se inscriba con tu código!</p>
+            <h2 class="referral-title">¡Conviértete en un Agente Migratorio!</h2>
+            <p class="referral-subtitle">¿Conoces a alguien que quiera trabajar en Italia? ¡Ayúdale a cumplir su sueño y gana por cada intermediazione exitosa!</p>
             
             <div class="referral-content">
                 <div class="referral-card">
-                    <div class="referral-icon">💰</div>
-                    <h3 class="referral-card-title">Gana €10 por Referido</h3>
-                    <p class="referral-card-description">Por cada persona que se inscriba usando tu código único, recibirás €10 directamente en tu cuenta</p>
+                    <div class="referral-icon">💼</div>
+                    <h3 class="referral-card-title">Gana por Intermediación</h3>
+                    <p class="referral-card-description">Como agente, recibirás una comisión por cada persona que se una exitosamente a nuestro programa a través de tu gestión</p>
                 </div>
                 
                 <div class="referral-card">
-                    <div class="referral-icon">🎯</div>
-                    <h3 class="referral-card-title">Código Único</h3>
-                    <p class="referral-card-description">Recibe tu código personalizado para compartir con amigos, familiares y conocidos</p>
+                    <div class="referral-icon">🤝</div>
+                    <h3 class="referral-card-title">Impacto Social</h3>
+                    <p class="referral-card-description">Ayuda a otros a encontrar nuevas oportunidades y construir un futuro mejor en Italia</p>
                 </div>
                 
                 <div class="referral-card">
-                    <div class="referral-icon">📊</div>
-                    <h3 class="referral-card-title">Seguimiento Fácil</h3>
-                    <p class="referral-card-description">Controla cuántas personas se han inscrito con tu código y tus ganancias acumuladas</p>
+                    <div class="referral-icon">📈</div>
+                    <h3 class="referral-card-title">Flexibilidad</h3>
+                    <p class="referral-card-description">Trabaja a tu propio ritmo, ampliando tu red de contactos y generando ingresos</p>
+                </div>
+
+                <div class="referral-card">
+                    <div class="referral-icon">🌐</div>
+                    <h3 class="referral-card-title">Red de Contactos Internacional</h3>
+                    <p class="referral-card-description">Expandirás tu red profesional y personal, conectando personas y culturas a nivel global.</p>
                 </div>
             </div>
             
             <div class="referral-steps">
-                <h3 class="referral-steps-title">¿Cómo Funciona el Programa de Referidos?</h3>
+                <h3 class="referral-steps-title">¿Cómo Funciona el Programa de Agentes?</h3>
                 <div class="referral-process">
                     <div class="referral-step">
                         <div class="referral-step-number">1</div>
-                        <p>Obtén tu código único de referido</p>
+                        <p>Contáctanos para ser agente</p>
                     </div>
                     <div class="referral-step">
                         <div class="referral-step-number">2</div>
-                        <p>Comparte tu código con amigos</p>
+                        <p>Recibe tu material de apoyo</p>
                     </div>
                     <div class="referral-step">
                         <div class="referral-step-number">3</div>
-                        <p>Ellos se inscriben con tu código</p>
+                        <p>Orienta a nuevos talentos</p>
                     </div>
                     <div class="referral-step">
                         <div class="referral-step-number">4</div>
-                        <p>¡Recibes €10 por cada inscripción!</p>
+                        <p>¡Gana por cada intermediazione!</p>
                     </div>
                 </div>
             </div>
             
             <div class="referral-cta">
                 <button onclick="openReferralModal()" class="referral-button">
-                    Obtener Mi Código de Referido
+                    Quiero Ser Agente Migratorio
                 </button>
-                <p class="referral-note">* Ganancias pagadas mensualmente vía transferencia bancaria o Western Union</p>
+                <p class="referral-note">* Las comisiones se discutirán y formalizarán una vez que te unas al programa de agentes.</p>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
     <section class="cta">
         <div class="container">
             <h2 class="cta-title">¡Comienza Tu Nueva Vida Hoy!</h2>
@@ -943,7 +1015,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
             <h3 class="footer-title">TYCHE x IIIM</h3>
@@ -953,20 +1024,23 @@
                 <p>📞 WhatsApp: <a href="https://wa.me/393462267861" class="contact-link">+39 346 226 7861</a></p>
                 <p>📱 Instagram: <a href="https://instagram.com/tyche_ilma" class="contact-link" target="_blank">@tyche_ilma</a> | <a href="https://instagram.com/ilim_project" class="contact-link" target="_blank">@ilim_project</a></p>
             </div>
-            <p style="margin-top: 2rem; opacity: 0.6;">© 2025 TYCHE x IIIM. Todos los derechos reservados.</p>
+            <p class="motto" style="margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.3); padding-top: 1rem;">
+                Para el trabajador, el proceso será gratuito con Tyche porque migrar ya cuesta el corazón.
+                ¡Contra la trata de trabajadores, revertimos el concepto de migración!
+            </p>
+            <p style="margin-top: 1rem; opacity: 0.6;">© 2025 TYCHE x IIIM. Todos los derechos reservados.</p>
         </div>
     </footer>
 
-    <!-- Referral Modal -->
     <div id="referralModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
                 <span class="close" onclick="closeReferralModal()">&times;</span>
-                <h2>¡Obtén Tu Código de Referido!</h2>
-                <p>Completa tus datos para generar tu código único y comenzar a ganar €10 por cada referido</p>
+                <h2>¡Conviértete en Agente Migratorio!</h2>
+                <p>Completa tus datos y nos pondremos en contacto para explicarte cómo puedes ser parte de nuestro equipo de agentes y ganar por cada intermediazione.</p>
             </div>
             <div class="modal-form">
-                <form id="referralForm" onsubmit="generateReferralCode(event)">
+                <form id="referralForm" onsubmit="submitAgentForm(event)">
                     <div class="form-group">
                         <label for="nombre">Nombre *</label>
                         <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre">
@@ -1010,42 +1084,13 @@
                         <input type="text" id="documento" name="documento" required placeholder="Número de documento o pasaporte">
                     </div>
                     
-                    <div class="form-group">
-                        <label for="metodoPago">Método de Pago *</label>
-                        <select id="metodoPago" name="metodoPago" required onchange="togglePaymentFields()">
-                            <option value="">Selecciona método de pago</option>
-                            <option value="transferencia">Transferencia Bancaria</option>
-                            <option value="western">Western Union</option>
-                        </select>
-                    </div>
-                    
-                    <div id="transferencia-fields" class="payment-fields">
-                        <div class="form-group">
-                            <label for="numeroCuenta">Número de Cuenta Bancaria *</label>
-                            <input type="text" id="numeroCuenta" name="numeroCuenta" placeholder="Número de cuenta para transferencia">
-                        </div>
-                    </div>
-                    
-                    <div id="western-fields" class="payment-fields">
-                        <div class="form-group">
-                            <label for="nombreCompleto">Nombre Completo para Western Union *</label>
-                            <input type="text" id="nombreCompleto" name="nombreCompleto" placeholder="Nombre completo tal como aparece en tu ID">
-                        </div>
-                        <div class="form-group">
-                            <label for="nacionalWestern">Nación para Western Union *</label>
-                            <input type="text" id="nacionalWestern" name="nacionalWestern" placeholder="País donde recibirás el Western Union">
-                        </div>
-                    </div>
-                    
-                    <button type="submit" class="submit-btn">Generar Mi Código de Referido</button>
+                    <button type="submit" class="submit-btn">Enviar Mi Solicitud de Agente</button>
                 </form>
                 
-                <div id="referralCodeDisplay" class="referral-code-display" style="display: none;">
-                    <h3>¡Tu Código de Referido Está Listo!</h3>
-                    <div class="referral-code" id="generatedCode"></div>
+                <div id="agentConfirmationDisplay" class="referral-code-display" style="display: none;">
+                    <h3>¡Solicitud Recibida!</h3>
                     <p style="color: white; margin-top: 1rem;">
-                        Comparte este código con tus amigos para que lo usen al inscribirse.<br>
-                        <strong>¡Ganarás €10 por cada persona que se registre!</strong>
+                        Gracias por tu interés en ser agente migratorio. Nos pondremos en contacto contigo pronto para explicarte los detalles y los pasos a seguir.
                     </p>
                 </div>
             </div>
@@ -1057,6 +1102,10 @@
         function openReferralModal() {
             document.getElementById('referralModal').style.display = 'block';
             document.body.style.overflow = 'hidden';
+            // Reset form and confirmation display when opening
+            document.getElementById('referralForm').style.display = 'block';
+            document.getElementById('agentConfirmationDisplay').style.display = 'none';
+            document.getElementById('referralForm').reset();
         }
 
         function closeReferralModal() {
@@ -1072,64 +1121,30 @@
             }
         }
 
-        // Toggle payment fields
-        function togglePaymentFields() {
-            const metodoPago = document.getElementById('metodoPago').value;
-            const transferenciaFields = document.getElementById('transferencia-fields');
-            const westernFields = document.getElementById('western-fields');
-            
-            // Hide all payment fields first
-            transferenciaFields.classList.remove('active');
-            westernFields.classList.remove('active');
-            
-            // Show relevant fields
-            if (metodoPago === 'transferencia') {
-                transferenciaFields.classList.add('active');
-                document.getElementById('numeroCuenta').required = true;
-                document.getElementById('nombreCompleto').required = false;
-                document.getElementById('nacionalWestern').required = false;
-            } else if (metodoPago === 'western') {
-                westernFields.classList.add('active');
-                document.getElementById('numeroCuenta').required = false;
-                document.getElementById('nombreCompleto').required = true;
-                document.getElementById('nacionalWestern').required = true;
-            }
-        }
-
-        // Generate referral code
-        function generateReferralCode(event) {
+        // Submit Agent Form (replaces generateReferralCode)
+        function submitAgentForm(event) {
             event.preventDefault();
             
             const nombre = document.getElementById('nombre').value;
             const apellido = document.getElementById('apellido').value;
             const email = document.getElementById('email').value;
+            const nacion = document.getElementById('nacion').value;
+            const ciudad = document.getElementById('ciudad').value;
+            const documento = document.getElementById('documento').value;
             
-            // Generate unique code based on email and timestamp
-            const timestamp = Date.now().toString().slice(-6);
-            const emailHash = email.toLowerCase().replace(/[^a-z0-9]/g, '').slice(0, 4);
-            const nameCode = (nombre.slice(0, 2) + apellido.slice(0, 2)).toUpperCase();
-            
-            const referralCode = `TYCHE-${nameCode}${emailHash}${timestamp}`;
-            
-            // Hide form and show generated code
-            document.getElementById('referralForm').style.display = 'none';
-            document.getElementById('referralCodeDisplay').style.display = 'block';
-            document.getElementById('generatedCode').textContent = referralCode;
-            
-            // Here you would typically send the data to your backend
-            console.log('Referral data:', {
+            // Here you would typically send the agent application data to your backend
+            console.log('Agent Application Data:', {
                 nombre: nombre,
                 apellido: apellido,
                 email: email,
-                nacion: document.getElementById('nacion').value,
-                ciudad: document.getElementById('ciudad').value,
-                documento: document.getElementById('documento').value,
-                metodoPago: document.getElementById('metodoPago').value,
-                numeroCuenta: document.getElementById('numeroCuenta').value,
-                nombreCompleto: document.getElementById('nombreCompleto').value,
-                nacionalWestern: document.getElementById('nacionalWestern').value,
-                referralCode: referralCode
+                nacion: nacion,
+                ciudad: ciudad,
+                documento: documento
             });
+
+            // Simulate success and show confirmation message
+            document.getElementById('referralForm').style.display = 'none';
+            document.getElementById('agentConfirmationDisplay').style.display = 'block';
         }
 
         // Existing scroll animations code
@@ -1148,28 +1163,31 @@
         }, observerOptions);
 
         // Osserva tutti gli elementi con animazioni
-        document.querySelectorAll('.feature-card, .step').forEach(el => {
+        document.querySelectorAll('.feature-card, .step, .referral-card, .business-model-box').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(30px)';
             el.style.transition = 'all 0.6s ease';
             observer.observe(el);
         });
 
-        // Smooth scroll per la freccia
-        document.querySelector('.scroll-indicator').addEventListener('click', () => {
-            document.querySelector('.features').scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
+        // Smooth scroll per la freccia - Rimuovere se non più necessaria
+        // document.querySelector('.scroll-indicator').addEventListener('click', () => {
+        //     document.querySelector('.features').scrollIntoView({
+        //         behavior: 'smooth'
+        //     });
+        // });
 
-        // Parallax effect
+        // Parallax effect (Note: This targets a pseudo-element which isn't directly animatable this way. 
+        // For a true parallax background, the ::before should be within an element, or use a background-image on the hero itself and adjust background-position.)
         window.addEventListener('scroll', () => {
             const scrolled = window.pageYOffset;
-            const parallax = document.querySelector('.hero::before');
-            if (parallax) {
-                const speed = scrolled * 0.5;
-                document.querySelector('.hero').style.transform = `translateY(${speed}px)`;
-            }
+            // Removed direct transform on .hero element as it was interfering with other animations or not producing the intended parallax effect on the ::before pseudo-element.
+            // A more robust parallax for background-image would involve background-position property.
+            // const parallax = document.querySelector('.hero::before'); // Cannot directly target pseudo-elements with JS for style changes
+            // if (parallax) {
+            //     const speed = scrolled * 0.5;
+            //     document.querySelector('.hero').style.transform = `translateY(${speed}px)`; 
+            // }
         });
     </script>
 </body>
